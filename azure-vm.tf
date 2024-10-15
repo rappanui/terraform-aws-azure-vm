@@ -9,7 +9,7 @@ resource "azurerm_public_ip" "ip" {
   name                = "public-ip-terraform"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
 
   tags = local.common_tags
 }
@@ -22,7 +22,7 @@ resource "azurerm_network_interface" "nic" {
   ip_configuration {
     name                          = "public-ip-terraform"
     subnet_id                     = data.terraform_remote_state.vnet.outputs.subnet_id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "Static"
     public_ip_address_id          = azurerm_public_ip.ip.id
   }
 
