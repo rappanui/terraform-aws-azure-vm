@@ -17,7 +17,7 @@ terraform {
     resource_group_name  = "rg-remote-state"
     storage_account_name = "rappanuiremotestate"
     container_name       = "remote-state"
-    key                  = "pipelines/terraform.tfstate"
+    key                  = "pipeline-github/terraform.tfstate"
   }
 }
 
